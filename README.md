@@ -1,9 +1,7 @@
-# LiteGPT – AI Chat Application
+# 🚀 LiteGPT – AI Chat Application
 
-LiteGPT is a clean and modern AI chat application inspired by the classic ChatGPT interface.  
-This project includes a React (Vite) frontend and a Node.js backend using the Google Gemini API.
-
----
+LiteGPT is a modern, clean AI chat application inspired by the ChatGPT interface.  
+It features a React (Vite) frontend and a Node.js backend powered by the Google Gemini API.
 
 ## 📁 Project Structure
 
@@ -11,12 +9,13 @@ This project includes a React (Vite) frontend and a Node.js backend using the Go
 LiteGPT/
 │── public/
 │
-│── server/
+│── server/                 # Backend
 │   ├── index.js
 │   ├── package.json
-│   └── package-lock.json
+│   ├── package-lock.json
+│   └── .env (ignored)
 │
-│── src/
+│── src/                    # Frontend
 │   ├── api/
 │   │   └── client.js
 │   ├── assets/
@@ -34,61 +33,60 @@ LiteGPT/
 │── README.md
 ```
 
----
+## ✨ Features
 
-## 🚀 Features
-
-- Classic ChatGPT-style UI  
-- Responsive sidebar  
-- Clean message bubbles  
-- Auto-scroll chat  
-- Gemini API integration  
-- Smooth, modern UI  
-
----
+- ChatGPT-style UI  
+- Responsive design  
+- Auto-scroll chat container  
+- Google Gemini API integration  
+- Clean modular code  
 
 ## 🧩 Tech Stack
 
-**Frontend:** React (Vite), TailwindCSS  
-**Backend:** Node.js, Express  
-**AI:** Google Gemini API  
+### Frontend
+- React (Vite)
+- TailwindCSS
+- Axios
 
----
+### Backend
+- Node.js
+- Express
+- CORS
+- Google Gemini API
 
 ## ⚙️ Installation
 
 ### Clone the project
-```
+```bash
 git clone https://github.com/Himanshuagrawal2003/LiteGPT.git
 cd LiteGPT
 ```
 
----
+# 🖥 Backend Setup
 
-## 🖥 Backend Setup
-```
+```bash
 cd server
 npm install
 ```
 
-Create a `.env` file:
+Create `.env`:
 ```
 GEMINI_API_KEY=your_api_key_here
 ```
 
 Start backend:
+```bash
+node index.js
 ```
-npm run dev
-```
+
 Backend runs on:
 ```
 http://localhost:3001
 ```
 
----
+# 💻 Frontend Setup
 
-## 💻 Frontend Setup
-```
+```bash
 cd ..
 npm install
 npm run dev
@@ -99,32 +97,54 @@ Frontend runs on:
 http://localhost:5173
 ```
 
----
+## 🌐 Frontend Environment Variable
 
-## 📡 API Example
-Request:
+Create `.env` in project root:
+
 ```
-POST /api/generate
+VITE_BACKEND_URL=http://localhost:3001
+```
+
+Deploy version:
+```
+VITE_BACKEND_URL=https://your-render-backend.onrender.com
+```
+
+## 📡 API Usage
+
+### Request
+```json
 {
   "prompt": "Hello"
 }
 ```
 
-Response:
-```
+### Response
+```json
 {
   "reply": "Hi! How can I assist you today?"
 }
 ```
 
----
+## ☁️ Backend Deployment (Render)
+
+1. Upload `/server` folder to separate GitHub repo  
+2. Render → New Web Service  
+3. Configure:
+
+| Setting | Value |
+|--------|--------|
+| Build Command | npm install |
+| Start Command | node index.js |
+| Environment | Node |
+
+Add env:
+```
+GEMINI_API_KEY=your_key
+```
 
 ## 📜 License
-You are free to use and modify this project.
-
----
+Feel free to use and modify.
 
 ## ⭐ Support
-
-If you like this project, consider giving it a star ⭐
-
+Give the repo a star if you find it helpful!
