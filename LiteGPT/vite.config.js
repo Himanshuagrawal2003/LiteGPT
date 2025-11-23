@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [tailwindcss(), react()],
   server: {
     proxy: {
-      "/api": "http://localhost:3001",
+      "/api": "https://lite-gpt-96bf.vercel.app/",
     },
   },
 });
