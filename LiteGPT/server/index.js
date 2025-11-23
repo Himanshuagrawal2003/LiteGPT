@@ -9,6 +9,7 @@ app.use(express.json());
 
 const PORT = 3001;
 
+
 app.post("/api/generate", async (req, res) => {
   const { prompt } = req.body;
 
