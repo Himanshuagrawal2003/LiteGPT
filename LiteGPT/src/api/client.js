@@ -1,8 +1,5 @@
-import axios from "axios";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-export async function sendPrompt(prompt) {
-  const res = await axios.post("http://localhost:3001/api/generate", {
-    prompt,
-  });
-  return res.data;
-}
+const response = await axios.post(`${BACKEND_URL}/api/chat`, {
+  prompt: userPrompt,
+});
