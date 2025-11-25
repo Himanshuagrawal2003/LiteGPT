@@ -1,12 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { sendPrompt } from "../api/client";
 
-export default function Chat() {
+export default function Chat({ setSidebarOpen }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [explainMode, setExplainMode] = useState(false);
+
   const bottomRef = useRef(null);
+  const inputRef = useRef(null);  
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   function formatResponse(text) {
     return text
@@ -26,7 +32,6 @@ export default function Chat() {
 
     try {
       let finalPrompt = input;
-
       if (!wantsExplain && !explainMode) {
         finalPrompt += " (give short direct answer only, no explanation)";
       }
@@ -58,9 +63,16 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col h-full w-full bg-[#0d0d0d] text-white overflow-hidden">
-      {/* Header */}
-      <div className="p-3 border-b border-[#1f1f1f] bg-[#101010] flex justify-between">
-        <h2 className="text-lg font-semibold">LiteGPT</h2>
+
+      <div className="p-3 border-b border-[#1f1f1f] bg-[#101010] flex items-center justify-between sticky top-0 z-20">
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="md:hidden text-2xl mr-3"
+        >
+          ☰
+        </button>
+
+        <h2 className="text-lg font-semibold flex-1">LiteGPT</h2>
 
         <button
           onClick={() => setExplainMode(!explainMode)}
@@ -71,11 +83,10 @@ export default function Chat() {
                 : "bg-[#1a1a1a] border-[#333]"
             }`}
         >
-          Explain Mode: {explainMode ? "ON" : "OFF"}
+          Explain: {explainMode ? "ON" : "OFF"}
         </button>
       </div>
 
-      {/* Messages box */}
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
         {messages.map((msg, i) => (
           <div
@@ -120,10 +131,12 @@ export default function Chat() {
         <div ref={bottomRef}></div>
       </div>
 
-      {/* Input box */}
+      {/* Input */}
       <div className="p-3 border-t border-[#1f1f1f] bg-[#101010]">
         <div className="flex items-center gap-3 max-w-4xl mx-auto">
+
           <textarea
+            ref={inputRef}   
             placeholder="Message LiteGPT..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
