@@ -1,150 +1,183 @@
-# 🚀 LiteGPT – AI Chat Application
+# LiteGPT 🚀  
 
-LiteGPT is a modern, clean AI chat application inspired by the ChatGPT interface.  
-It features a React (Vite) frontend and a Node.js backend powered by the Google Gemini API.
+A fast, minimalist, and powerful **AI Chat Application** built for speed, clarity, and seamless conversation management.  
+Powered by the high-performance **Groq Llama-3.3 engine**, LiteGPT delivers near-instant responses with a clean, distraction-free experience. ⚡  
 
-## 📁 Project Structure
+---
 
+## ✨ Key Features
+
+- ⚡ **Blazing Fast Responses**  
+  Powered by `llama-3.3-70b-versatile` for ultra-low latency AI generation  
+
+- 💾 **Full Chat Persistence**  
+  Integrated with **MongoDB Atlas** to store every chat session and message  
+
+- 🛠️ **Complete CRUD Functionality**
+  - ➕ Create new chat sessions  
+  - 📖 View chat history in sidebar  
+  - ✏️ Rename chats inline  
+  - 🗑️ Delete conversations permanently  
+
+- 🧠 **Dual Interaction Modes**
+  - 💬 **Normal Mode** – Clean and direct responses  
+  - 📘 **Explain Mode** – Step-by-step explanations with logic  
+
+- 💻 **Advanced Code Blocks**
+  - 📋 One-click copy for code snippets  
+  - 🎯 Clean formatting with separated explanations  
+
+- 🎨 **Modern UI/UX**
+  - Glassmorphic dark theme 🌙  
+  - Fully responsive (Mobile 📱 / Tablet 💻 / Desktop 🖥️)  
+
+---
+
+## 🎯 Why LiteGPT?
+
+Most AI chat applications are either slow, cluttered, or lack proper session handling.  
+
+**LiteGPT solves this by focusing on:**
+
+- ⚡ **Speed-first AI interaction:** (Groq inference engine)  
+- 🧼 **Minimal and distraction-free UI:** Focusing on content  
+- 💾 **Persistent chat system:** Like professional AI tools  
+- 🧠 **Learning-focused:** Dedicated explain mode for deeper understanding  
+
+---
+
+## 🧩 Architecture Overview
+
+```text
+Frontend (React + Vite)
+        ↓
+API Layer (Axios)
+        ↓
+Backend (Node.js + Express)
+        ↓
+Groq API (LLM Processing)
+        +
+MongoDB Atlas (Database Storage)
 ```
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Frontend
+- React.js (Vite ⚡)  
+- Tailwind CSS + Custom CSS  
+- Axios  
+
+### ⚙️ Backend
+- Node.js  
+- Express.js  
+- MongoDB & Mongoose  
+- Environment-based configuration  
+
+### 🤖 AI Engine
+- Groq Cloud API (Llama-3.3 model)  
+
+---
+
+## 📂 Project Structure
+```text
 LiteGPT/
-│── public/
 │
-│── server/                 # Backend
+├── server/
 │   ├── index.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── .env (ignored)
+│   ├── .env
+│   └── package.json
 │
-│── src/                    # Frontend
+├── src/
 │   ├── api/
-│   │   └── client.js
-│   ├── assets/
-│   │   └── Logo.png
 │   ├── components/
-│   │   └── Chat.jsx
 │   ├── App.jsx
 │   ├── index.css
-│   ├── main.jsx
+│   └── main.jsx
 │
-│── index.html
-│── package.json
-│── vite.config.js
-│── eslint.config.js
-│── README.md
+├── .env
+├── package.json
+└── README.md
 ```
 
-## ✨ Features
+---
 
-- ChatGPT-style UI  
-- Responsive design  
-- Auto-scroll chat container  
-- Google Gemini API integration  
-- Clean modular code  
+## 🏆 Highlights
 
-## 🧩 Tech Stack
+- 🚀 **Full-stack System:** Built a complete AI chat system with real-time response handling  
+- 💾 **Persistence:** Implemented chat storage with full CRUD operations  
+- ⚡ **Optimization:** Optimized API flow for low-latency responses  
+- 🎨 **Design:** Crafted a clean and production-ready UI/UX  
+- 🧠 **Intelligence:** Integrated dual-mode AI logic (Normal + Explain)  
 
-### Frontend
-- React (Vite)
-- TailwindCSS
-- Axios
+---
 
-### Backend
-- Node.js
-- Express
-- CORS
-- Google Gemini API
+## ⚙️ Key Challenges Solved
 
-## ⚙️ Installation
+- Managing fast AI responses without UI lag  
+- Designing scalable chat storage in MongoDB  
+- Handling real-time session updates  
+- Separating explanation logic from code output  
 
-### Clone the project
+---
+
+## 🚀 Installation & Setup
+
+### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/Himanshuagrawal2003/LiteGPT.git
 cd LiteGPT
 ```
 
-# 🖥 Backend Setup
-
+### 2️⃣ Install Dependencies
 ```bash
-cd server
 npm install
+cd server && npm install
 ```
 
-Create `.env`:
-```
-GEMINI_API_KEY=your_api_key_here
-```
+### 3️⃣ Environment Configuration
 
-Start backend:
-```bash
-node index.js
-```
-
-Backend runs on:
-```
-http://localhost:3001
-```
-
-# 💻 Frontend Setup
-
-```bash
-cd ..
-npm install
-npm run dev
-```
-
-Frontend runs on:
-```
-http://localhost:5173
-```
-
-## 🌐 Frontend Environment Variable
-
-Create `.env` in project root:
-
-```
+#### Frontend `.env`
+```env
 VITE_BACKEND_URL=http://localhost:3001
 ```
 
-Deploy version:
-```
-VITE_BACKEND_URL=https://your-render-backend.onrender.com
-```
-
-## 📡 API Usage
-
-### Request
-```json
-{
-  "prompt": "Hello"
-}
+#### Backend `server/.env`
+```env
+GROQ_API_KEY=your_groq_api_key
+MONGODB_URI=your_mongodb_atlas_uri
 ```
 
-### Response
-```json
-{
-  "reply": "Hi! How can I assist you today?"
-}
+### 4️⃣ Run Application
+```bash
+# Terminal 1 (Server)
+cd server
+node index.js
+
+# Terminal 2 (Client)
+npm run dev
 ```
 
-## ☁️ Backend Deployment (Render)
+---
 
-1. Upload `/server` folder to separate GitHub repo  
-2. Render → New Web Service  
-3. Configure:
+## 🔮 Future Enhancements
 
-| Setting | Value |
-|--------|--------|
-| Build Command | npm install |
-| Start Command | node index.js |
-| Environment | Node |
+- 🌐 **Live Deployment:** (Vercel + Render)  
+- 🔔 **WebSockets:** Real-time updates  
+- 🤖 **Multi-model:** Support for GPT, Claude, etc.  
+- 📄 **Exports:** Export chats as PDF / Markdown  
+- 👥 **Collaboration:** Shared session mode  
 
-Add env:
-```
-GEMINI_API_KEY=your_key
-```
+---
 
-## 📜 License
-Feel free to use and modify.
+## 👨‍💻 Developer
 
-## ⭐ Support
-Give the repo a star if you find it helpful!
+**Himanshu Agrawal**  
+🔗 [GitHub Profile](https://github.com/Himanshuagrawal2003)  
+
+---
+
+## 📜 License & Purpose
+
+Built with ❤️ for learning, innovation, and showcasing full-stack AI development skills.

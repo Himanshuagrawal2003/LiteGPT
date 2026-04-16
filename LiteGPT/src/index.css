@@ -13,6 +13,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 a {
@@ -67,4 +72,50 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Code Block Styling */
+.code-block {
+  background-color: #0b0b0b;
+  border-radius: 12px;
+  margin: 16px 0;
+  border: 1px solid #2a2a2a;
+  overflow: hidden;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', Courier, monospace;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.code-header {
+  background-color: #1a1a1a;
+  padding: 8px 16px;
+  font-size: 0.7rem;
+  color: #aaa;
+  border-bottom: 1px solid #2a2a2a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #d1d1d1;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Custom scrollbar for code blocks */
+.code-block pre::-webkit-scrollbar {
+  height: 6px;
+}
+.code-block pre::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+.code-block pre::-webkit-scrollbar-track {
+  background: transparent;
 }
